@@ -29,7 +29,7 @@ notes.post('/', (req, res) => {
       err
         ? console.error(err)
         : console.log(
-          `Review for ${title} has been written to JSON file`
+          `New Note for \"${title}\" has been written to JSON file`
         ))
     const response = {
       status: 'success',
