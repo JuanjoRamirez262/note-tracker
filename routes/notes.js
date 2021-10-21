@@ -2,14 +2,13 @@ const express = require('express');
 const notes = express.Router();
 const db = require('../db/db.json');
 const fs = require('fs');
-var uniqid = require('uniqid'); 
+var uniqid = require('uniqid');
 
 notes.use(express.json());
 notes.use(express.urlencoded({ extended: true }));
 
 notes.get('/', (req, res) => {
   res.json(db)
-  // res.send(JSON.stringify(db))
 })
 
 notes.post('/', (req, res) => {
@@ -39,6 +38,30 @@ notes.post('/', (req, res) => {
   } else {
     res.status(500).json('Error in posting note');
   }
+})
+
+notes.delete('/:id', (req, res) => {
+  const id = req.params.id;
+  for (let i = 0; i<db.length;i++) {
+    console.log(db[i])
+    if (db[i].id == id) {
+      console.log(db[i])
+      // const response = {
+      //   status: 'success',
+      //   body: db[i],
+      // };
+      db.splice(i,1)
+      fs.writeFile('./db/db.json', JSON.stringify(db), (err) =>
+        err
+          ? console.error(err)
+          : console.log(
+            `Note deleted.`
+          ))
+      res.status(204)
+      // .json(response)
+    } 
+  }
+  res.status(500).json('Error in deleting note');
 })
 
 module.exports = notes;

@@ -1,7 +1,17 @@
 [
     {
-        "title": "New Test",
-        "text": "Test",
-        "id": "ob6mokv09lodj"
+        "title": "Hello There!",
+        "text": ":)",
+        "id": "ob3pskv1lov9w"
+    },
+    {
+        "title": "Feel free to add new note!",
+        "text": "It's working!",
+        "id": "obih8kv1lp7qy"
+    },
+    {
+        "title": "And Delete it if you want!",
+        "text": ":o",
+        "id": "ob1cckv1lpm03"
     }
 ]
