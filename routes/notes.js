@@ -43,13 +43,7 @@ notes.post('/', (req, res) => {
 notes.delete('/:id', (req, res) => {
   const id = req.params.id;
   for (let i = 0; i<db.length;i++) {
-    console.log(db[i])
     if (db[i].id == id) {
-      console.log(db[i])
-      // const response = {
-      //   status: 'success',
-      //   body: db[i],
-      // };
       db.splice(i,1)
       fs.writeFile('./db/db.json', JSON.stringify(db), (err) =>
         err
@@ -58,7 +52,6 @@ notes.delete('/:id', (req, res) => {
             `Note deleted.`
           ))
       res.status(204)
-      // .json(response)
     } 
   }
   res.status(500).json('Error in deleting note');
