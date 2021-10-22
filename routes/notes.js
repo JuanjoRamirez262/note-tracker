@@ -1,16 +1,22 @@
 const express = require('express');
+// initializating router
 const notes = express.Router();
+// importing json file
 const db = require('../db/db.json');
+// importing packages to edit files
 const fs = require('fs');
+// importing package to create unique id's for notes
 var uniqid = require('uniqid');
 
 notes.use(express.json());
 notes.use(express.urlencoded({ extended: true }));
 
+// get request returning json file
 notes.get('/', (req, res) => {
   res.json(db)
 })
 
+// post request to add new note
 notes.post('/', (req, res) => {
   const { title, text } = req.body;
 
@@ -40,6 +46,8 @@ notes.post('/', (req, res) => {
   }
 })
 
+
+// delete request to delete note
 notes.delete('/:id', (req, res) => {
   const id = req.params.id;
   for (let i = 0; i < db.length; i++) {
