@@ -25,16 +25,6 @@ npm i
     
 After installing dependencis with ```npm i```, run with node or nodemon the file ```server.js``` 
 
-## Licenses 
-
-## Contribution guidelines
-    
-Email
-
-## Tests
-    
-none
-
 ## Questions
     
 [Juan Jose Ramirez Github profile](https://github.com/JuanjoRamirez262)
